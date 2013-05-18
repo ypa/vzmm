@@ -3,7 +3,7 @@
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
-
+import os
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -109,7 +109,8 @@ STATICFILES_FINDERS = (
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = r"sbzbl!*#9hj-u3ikfet9mdlpc*x1k48_#tqy87(-lt$hkoar0a"
+SECRET_KEY = "sbzbl!*#9hj-u3ikfet9mdlpc*x1k48_#tqy87(-lt$hkoar0a"
+
 ########## END SECRET CONFIGURATION
 
 
@@ -235,3 +236,16 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'
 ########## END WSGI CONFIGURATION
+
+# from 2 scoops book Example 5.17
+from django.core.exceptions \
+    import ImproperlyConfigured
+
+msg = "Set the %s environment variable"
+
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = msg % var_name
+        raise ImproperlyConfigured(error_msg)
