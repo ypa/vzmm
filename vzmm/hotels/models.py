@@ -7,7 +7,7 @@ class Hotel(models.Model):
     description = models.TextField(blank=True)
     comment = models.CharField(max_length=100, blank=True)
     starting_rate = models.DecimalField(max_digits=6, decimal_places=2,
-        blank=True)
+        blank=True, null=True)
     created_date = models.DateTimeField('date created')
 
     def __unicode__(self):
