@@ -5,6 +5,25 @@ from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 import os
 
+# from 2 scoops Example 5.29
+from os.path import join, abspath, dirname
+
+here = lambda *x: join(abspath(dirname(__file__)), *x)
+PROJECT_ROOT = here("..", "..")
+root = lambda *x: join(abspath(PROJECT_ROOT), *x)
+
+MEDIA_ROOT = root("media")
+STATIC_ROOT = root("collected_static")
+
+STATICFILES_DIRS = (
+    root("assets"),
+)
+TEMPLATE_DIRS = (
+    root("templates"),
+)
+# end from 2 scoops Example 5.29
+
+
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
