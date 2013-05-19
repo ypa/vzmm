@@ -10,6 +10,9 @@ class Hotel(models.Model):
         blank=True)
     created_date = models.DateTimeField('date created')
 
+    def __unicode__(self):
+        return self.name
+
 
 class Address(models.Model):
     hotel = models.ForeignKey(Hotel, null=True, blank=True)
@@ -22,3 +25,5 @@ class Address(models.Model):
     email = models.EmailField(max_length=75, blank=True)
     email2 = models.EmailField(max_length=75, blank=True)
 
+    def __unicode__(self):
+        return self.address
