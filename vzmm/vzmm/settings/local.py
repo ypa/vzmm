@@ -2,6 +2,7 @@
 
 
 from os.path import join, normpath
+from os import environ
 
 from base import *
 
@@ -25,12 +26,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': environ.get('DB_NAME', None),
+        'USER': environ.get('DB_USER', None),
+        'PASSWORD': environ.get('DB_PWD', None),
+        'HOST': environ.get('DB_HOST', None),
+        'PORT': '5432',
     }
 }
 ########## END DATABASE CONFIGURATION
