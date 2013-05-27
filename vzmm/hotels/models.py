@@ -11,7 +11,10 @@ class Hotel(models.Model):
     created_date = models.DateTimeField('date created')
 
     def __unicode__(self):
-        return self.name
+        return ' '.join([
+            self.name,
+            self.starting_rate,
+            ])
 
 
 class Address(models.Model):
@@ -26,4 +29,7 @@ class Address(models.Model):
     email2 = models.EmailField(max_length=75, blank=True)
 
     def __unicode__(self):
-        return self.address
+        return ' '.join([
+            self.address,
+            self.city,
+            ])
