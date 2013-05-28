@@ -11,10 +11,8 @@ class Hotel(models.Model):
     created_date = models.DateTimeField('date created')
 
     def __unicode__(self):
-        return ' '.join([
-            self.name,
-            self.starting_rate,
-            ])
+        return self.name
+
 
 
 class Address(models.Model):
