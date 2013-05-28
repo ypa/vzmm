@@ -7,7 +7,7 @@ from hotels import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
+    url(r'^hotels/', include('hotels.urls')),
 
     # Examples:
     # url(r'^$', 'vzmm.views.home', name='home'),
