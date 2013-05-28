@@ -3,10 +3,11 @@ from django.views.generic import TemplateView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from hotels import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name='base.html')),
+    url(r'^hotels/', include('hotels.urls')),
 
     # Examples:
     # url(r'^$', 'vzmm.views.home', name='home'),
