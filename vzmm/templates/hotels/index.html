@@ -1,0 +1,9 @@
+{% if latest_hotel_list %}
+	<ul>
+		{% for hotel in latest_hotel_list %}
+			<li><a href="/hotels/{{ hotel.id }}/">{{ hotel.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No hotels are available.</p>
+{% endif %}
