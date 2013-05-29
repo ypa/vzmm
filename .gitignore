@@ -19,3 +19,6 @@ build
 
 #env variables
 .env_var
+
+#Mac specific files
+.DS_Store
