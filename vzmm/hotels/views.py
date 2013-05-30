@@ -10,6 +10,7 @@ def index(request):
     context = {'latest_hotel_list': latest_hotel_list}
     return render(request, 'hotels/index.html', context)
 
+
 def detail(request, hotel_id):
     try:
         hotel = Hotel.objects.get(pk=hotel_id)
@@ -17,3 +18,9 @@ def detail(request, hotel_id):
         raise Http404
     return render(request, 'hotels/detail.html', {'hotel': hotel})
 
+
+def classifieds(request):
+    classified_hotel_list = Hotel.objects.filter(tag='classified')\
+                            .order_by('-created_date')
+    context = {'classified_hotel_list': classified_hotel_list}
+    return render(request, 'hotels/classifieds.html', context)

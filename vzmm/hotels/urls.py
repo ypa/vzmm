@@ -7,4 +7,6 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     # ex: /hotels/3/
     url(r'^(?P<hotel_id>\d+)/$', views.detail, name='detail'),
+    # ex: /hotels/classifieds/
+    url(r'^classifieds/$', views.classifieds, name='classifieds'),
 )
