@@ -1,9 +1,38 @@
-{% if latest_hotel_list %}
-	<ul>
-		{% for hotel in latest_hotel_list %}
-			<li><a href="/hotels/{{ hotel.id }}/">{{ hotel.name }}</a></li>
-		{% endfor %}
-	</ul>
-{% else %}
-	<p>No hotels are available.</p>
-{% endif %}
+{% extends "base.html" %}
+
+{% block header %}
+<title>Listings | ViZit Myanmar</title>
+{% endblock %}
+
+{% block main-nav %}
+	<li><a href="{{ ROOT_URL }}/index.html">Home</a></li>
+	<li class="active"><a href="/hotels/">Listings</a></li>
+	<li><a href="{{ ROOT_URL }}/classifieds.html">Classifieds</a></li>
+	<li><a href="{{ ROOT_URL }}/blog.html">Blog</a></li>
+	<li><a href="{{ ROOT_URL }}/about.html">Contact Us</a></li>
+{% endblock %}
+
+{% block content %}
+<h3 class="title"><span class="pull-left">FEATURED LISTINGS</span></h3>
+<div class="row-fluid">
+	{% for hotel in latest_hotel_list %}
+		<div class="featured-item">
+			<div class="span3">
+				<a href="/hotels/{{ hotel.id }}/"><img src="{{ STATIC_URL }}img/hotels/{{ hotel.id }}/thumb.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}" class="img pull-left"></a>
+			</div>
+			<div class="span7">
+				<strong>
+					<a href="/hotels/{{ hotel.id }}/">{{ hotel.name }}</a>
+					{% if hotel.tag %}
+						<span class="label label-important">{{ hotel.tag }}</span>
+					{% endif %}
+				</strong>
+				<p>{{ hotel.description }}</p>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+
+
+
+{% endblock %}
