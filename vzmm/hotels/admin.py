@@ -9,8 +9,8 @@ class AddressInline(admin.StackedInline):
 class HotelAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {
-            'fields':['name', 'tag', 'description', 'starting_rate',
-            'comment', 'created_date']
+            'fields':['name', 'tag', 'description', 'url',
+            'starting_rate', 'comment', 'created_date']
             }),
     ]
     inlines = [AddressInline]
