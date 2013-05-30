@@ -22,3 +22,5 @@ build
 
 #Mac specific files
 .DS_Store
+
+img/
