@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^hotels/', include('hotels.urls')),
 
     # Examples:
-    # url(r'^$', 'vzmm.views.home', name='home'),
+    url(r'^$', 'vzmm.views.index', name='home'),
     # url(r'^vzmm/', include('vzmm.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
