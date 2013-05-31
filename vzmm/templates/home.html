@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="title"><span class="pull-left">HOTEL LISTINGS</span><span class="pull-right"><a href="{{ ROOT_URL }}/listings.html">View all listings</a></span></h3>
+<h3 class="title"><span class="pull-left">HOTEL LISTINGS</span><span class="pull-right"><a href="/hotels">View all listings</a></span></h3>
 <div class="container-fluid">
 	<div class="row-fluid product_listing">
 		{% for hotel in latest_hotel_list %}
@@ -61,7 +61,7 @@
 	</div>
 </div>
 
-<h3 class="title"><span class="pull-left">CLASSIFIED HOTELS</span><span class="pull-right"><a href="{{ ROOT_URL }}/classifieds.html">View all classifieds</a></span></h3>
+<h3 class="title"><span class="pull-left">CLASSIFIED HOTELS</span><span class="pull-right"><a href="/hotels/classifieds">View all classifieds</a></span></h3>
 <div class="container-fluid">
 	<div class="row-fluid product_listing">
 		{% for hotel in classified_hotel_list %}
