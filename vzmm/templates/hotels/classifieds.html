@@ -27,7 +27,7 @@
 						<span class="label label-important">{{ hotel.tag }}</span>
 					{% endif %}
 				</strong>
-				<p>{{ hotel.description }}</p>
+				<p>{{ hotel.description | truncatewords:60 }}</p>
 			</div>
 		</div>
 	{% endfor %}
