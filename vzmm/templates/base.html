@@ -61,7 +61,7 @@
 		</div>
 	</div>
 
-
+	{% block body %}
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span9">
@@ -71,6 +71,7 @@
 					{% endblock %}
 				</div>
 			</div>
+			{% block right-nav %}
 			<div class="span3">
 				<h3 class="title nm">BROWSE BY CATEGORY</h3>
 				<div class="accordion right-col" id="accordion">
@@ -156,9 +157,10 @@
                     <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
                 </div>
 			</div>
+			{% endblock %}
 		</div>
 	</div>
-
+	{% endblock %}
 
 	<div class="container-fluid footer">
 		<div class="row-fluid">
