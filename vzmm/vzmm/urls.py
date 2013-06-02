@@ -11,6 +11,9 @@ urlpatterns = patterns('',
 
     # Examples:
     url(r'^$', 'vzmm.views.index', name='home'),
+    url(r'^about/', 'vzmm.views.about', name='about'),
+    url(r'^tos/', 'vzmm.views.tos', name='tos'),
+    url(r'^privacy/', 'vzmm.views.privacy', name='privacy'),
     # url(r'^vzmm/', include('vzmm.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
