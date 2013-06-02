@@ -3,19 +3,19 @@
 {% block title %}{{post.title}}{% endblock %}
 
 {% block blog-content %}
-<article>
-    <header>
-        <h1> {{post.title}} </h1>
-        <p>
+    <h2 class="post-title">{{post.title}}</h2>
+    <div class="wrapper">
+        <p class="text">
             Posted on
             <time datetime="{{post.created|date:"c"}}">
             {{post.created|date}}
             </time>
         </p>
-    </header>
-    <p class="description">
+    <p class="text description">
         {{post.description}}
     </p>
-    {{post.content|safe}}
+    <p class="text">
+        {{post.content|safe}}
+    </p>
 </article>
 {% endblock %}

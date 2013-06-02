@@ -9,9 +9,15 @@
         <div class="row-fluid">
             <div class="span9">
                 <div class="main_content">
-                    {%block blog-content %}
-                        blog body text
-                    {% endblock %}
+                    <div class="blog-content">
+                        <div class="row-fluid">
+                            <div class="blog-post">
+                                {%block blog-content %}
+                                    blog body text
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
