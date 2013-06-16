@@ -5,4 +5,3 @@ django-model-utils==1.1.0
 logutils==0.3.3
 South==0.7.6
 psycopg2==2.4.6
-git+git://github.com/ypa/django-ratings.git
