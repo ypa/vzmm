@@ -1,5 +1,4 @@
 from django.db import models
-from ratings.models import Ratings
 
 class Hotel(models.Model):
     name = models.CharField(max_length=200)
