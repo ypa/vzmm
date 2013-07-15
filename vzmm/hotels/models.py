@@ -1,5 +1,13 @@
 from django.db import models
 
+SCORE_CHOICES = (
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+)
+
 class Hotel(models.Model):
     name = models.CharField(max_length=200)
     tag = models.CharField(max_length=15, blank=True)
@@ -31,3 +39,24 @@ class Address(models.Model):
             self.address,
             self.city,
             ])
+
+
+class Review(models.Model):
+    """A ``Review`` consists on a comment and a rating.
+    """
+    hotel = models.ForeignKey(Hotel, null=True, blank=True)
+    user_name = models.CharField(max_length=50, blank=True)
+    user_email = models.EmailField(blank=True)
+    user_city = models.CharField(max_length=50, blank=True)
+    comment = models.TextField(blank=True)
+    score = models.FloatField(choices=SCORE_CHOICES, default=3.0)
+    active = models.BooleanField(default=True)
+
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("-creation_date", )
+
+    def __unicode__(self):
+        return "%s (%s)" % (self.user_name, self.score)
+
