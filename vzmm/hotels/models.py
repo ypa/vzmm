@@ -1,11 +1,13 @@
 from django.db import models
 
+from django.utils.translation import ugettext_lazy as _
+
 SCORE_CHOICES = (
-    1.0,
-    2.0,
-    3.0,
-    4.0,
-    5.0,
+    (1.0, _(u"*")),
+    (2.0, _(u"**")),
+    (3.0, _(u"***")),
+    (4.0, _(u"****")),
+    (5.0, _(u"*****")),
 )
 
 class Hotel(models.Model):
