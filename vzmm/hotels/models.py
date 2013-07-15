@@ -1,4 +1,5 @@
 from django.db import models
+from ratings.models import Ratings
 
 class Hotel(models.Model):
     name = models.CharField(max_length=200)
@@ -9,6 +10,7 @@ class Hotel(models.Model):
     starting_rate = models.DecimalField(max_digits=6, decimal_places=2,
         blank=True, null=True)
     created_date = models.DateTimeField('date created')
+    ratings = Ratings()
 
     def __unicode__(self):
         return self.name
