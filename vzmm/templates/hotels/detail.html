@@ -65,20 +65,11 @@
 				<div class="tab-pane active" id="profile">
 					{% for review in hotel.review_set.all %}
 						<div class="reviews-item">
-							<div>
-								<a title="{{ review.user_name }}" href="#"><img title="" alt="" src="{{ STATIC_URL }}img/products/1_photo_1776.jpg" class="img"></a>
-							</div>
 							<div class="rate">
-								<img alt="Star On" src="{{ STATIC_URL }}img/products/img_rateMiniStarOn.png">
-								<img alt="Star On" src="{{ STATIC_URL }}img/products/img_rateMiniStarOn.png">
-								<img alt="Star Off" src="{{ STATIC_URL }}img/products/img_rateMiniStarOff.png">
-								<img alt="Star Off" src="{{ STATIC_URL }}img/products/img_rateMiniStarOff.png">
-								<img alt="Star Off" src="{{ STATIC_URL }}img/products/img_rateMiniStarOff.png">
+								<span class="stars">{{ review.score }}</span>
 							</div>
-							<a href="#">» Read More</a>
 							<p>{{ review.comment }}</p>
 							<div class="info">
-								<p> ratings: {{ review.score }} </p>
 								<p>by {{ review.user_name }}
 								from {{ review.user_city }}, {{ review.creation_date }}</p>
 							</div>
