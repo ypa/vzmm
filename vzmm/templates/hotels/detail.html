@@ -59,10 +59,11 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<ul class="nav nav-tabs" id="myTab">
-				<li class="active"><a href="#profile">RECENT REVIEWS</a></li>
+				<li class="active"><a href="#reviews">RECENT REVIEWS</a></li>
+				<li><a href="#submit">REVIEW</a></li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane active" id="profile">
+				<div class="tab-pane" id="reviews">
 					{% for review in hotel.review_set.all %}
 						<div class="reviews-item">
 							<div class="rate">
@@ -75,6 +76,11 @@
 							</div>
 						</div>
 					{% endfor %}
+				</div>
+				<div class="tab-pane active" id="submit">
+					<div id="rating">
+					    {% include 'rating.html' %}
+					</div>
 				</div>
 			</div>
 		</div>

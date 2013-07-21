@@ -24,3 +24,12 @@ def classifieds(request):
                             .order_by('-created_date')
     context = {'classified_hotel_list': classified_hotel_list}
     return render(request, 'hotels/classifieds.html', context)
+
+
+def rate(request, hotel_id):
+    if request.method == 'POST':
+        post_data = request.POST
+        rating = post_data.get('value')
+        msg = "Hotel number %s, rating is %s.\n" % (hotel_id, rating)
+        return HttpResponse(msg)
+        # use post data to complete the rating..

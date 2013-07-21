@@ -9,4 +9,7 @@ urlpatterns = patterns('',
     url(r'^(?P<hotel_id>\d+)/$', views.detail, name='detail'),
     # ex: /hotels/classifieds/
     url(r'^classifieds/$', views.classifieds, name='classifieds'),
+
+    #ex: /hotels/3/rate/
+    url(r'^(?P<hotel_id>\d+)/rate/$', views.rate, name='rate'),
 )
