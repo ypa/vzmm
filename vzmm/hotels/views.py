@@ -21,11 +21,34 @@ def index(request):
 
 
 def detail(request, hotel_id):
+    def round_to(n, precission):
+        correction = 0.5 if n >= 0 else -0.5
+        return int(n/precission+correction)*precission
+
+    def round_to_point_5(n):
+        return round_to(n, 0.5)
+
+    def calculate_average_score(reviews=None):
+        n_reviews = len(reviews)
+        total = sum([review.score for review in reviews])
+        if n_reviews == 0:
+            return 0.0
+        return round_to_point_5(total/n_reviews)
+
+
     try:
         hotel = Hotel.objects.get(pk=hotel_id)
     except Hotel.DoesNotExist:
         raise Http404
-    return render(request, 'hotels/detail.html', {'hotel': hotel})
+    reviews = hotel.review_set.all()
+    avg_score = calculate_average_score(reviews)
+    n_reviews = len(reviews)
+    return render(request, 'hotels/detail.html',
+        {
+        'hotel': hotel,
+        'avg_score':avg_score,
+        'n_reviews':n_reviews,
+        })
 
 
 def classifieds(request):
