@@ -2,20 +2,20 @@
 
 
 
-<form class="review_form" action="/hotels/{{ hotel.id }}/rate/" method="POST">
+<form id="review_form" class="review_form well" action="/hotels/{{ hotel.id }}/rate/" method="POST">
 	{% csrf_token %}
 	<div class="alert alert-info"><h5>How would you rate this hotel?</h5><span class="label label-info">Your rating:</span>
-		<div class="rateit panel" data-rateit-backingfld="#backing4" data-rateit-resetable="false"  data-rateit-ispreset="true"
+		<div class="rateit panel" id="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false"  data-rateit-ispreset="true"
 		    data-rateit-min="0" data-rateit-max="5">
 		</div>
 	</div>
-	<input type="range" value="0" step="1" id="backing4" name="score">
-	<input type="text" id="user_name" name="user_name" placeholder="Name">
-	<input type="text" id="user_city" name="user_city" placeholder="City originally from">
+	<input type="range" value="0" step="1" id="backing4" name="score" required>
+	<input type="text" id="user_name" name="user_name" placeholder="Name" required>
+	<input type="text" id="user_city" name="user_city" placeholder="City originally from" required>
 	<br>
 	<input type="text" id="user_email" name="user_email" placeholder="E-mail"> <span>(Optional)</span>
 	<br/>
-	<textarea class="field span6" id="textarea" rows="5" name="comment" placeholder="Please write a short review..."></textarea>
+	<textarea class="field span6" id="textarea" rows="5" name="comment" placeholder="Please write a short review..." required></textarea>
 	<br/>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
