@@ -5,7 +5,7 @@ body{
 	color: #666;
 	background-color:#f8f8f8;
 	font-size:10pt;
-	line-height:18px;
+	line-height:20px;
 }
 a:link,a:visited{
 	color:#333;
@@ -357,8 +357,13 @@ span.stars, span.stars span {
     display: block;
     background: url(../img/stars.png) 0 -16px repeat-x;
     width: 80px;
-    height: 16px;
+    height: 15px;
 }
+
+.review-rating {
+	height: 22px;
+}
+
 
 span.stars span {
     background-position: 0 0;

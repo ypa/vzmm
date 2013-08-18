@@ -44,7 +44,19 @@ $(document).ready(function() {
 
     // initialize the validator
     $('#review_form').validate({
-	  ignore: []
+	  	ignore: [],
+	  	//errorClass: "label-important",
+        highlight: function(element, errorClass, validClass) {
+            $(element).parents("div[class='review_form']").addClass("error");
+
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parents(".error").removeClass("error");
+        },
+        errorElement: 'span',
+        errorPlacement: function($error, $element) {
+            $error.addClass("label label-important").insertAfter($element);
+        }
 	});
 
 

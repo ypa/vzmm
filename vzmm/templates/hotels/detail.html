@@ -70,8 +70,10 @@
 				<div class="tab-pane" id="reviews">
 					{% for review in hotel.review_set.all %}
 						<div class="reviews-item">
-							<div class="rate">
-								<span class="stars">{{ review.score }}</span>
+							<div class="review-rating">
+								<div class="rate">
+									<span class="stars">{{ review.score }}</span>
+								</div>
 							</div>
 							<p>{{ review.comment }}</p>
 							<div class="info">
