@@ -11,14 +11,14 @@
 	<link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}css/bootstrap.min.css'>
 	<link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}css/bootstrap-responsive.min.css'>
 	<link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}css/main.css'>
-	<link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}css/rateit.css'>
+	<link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}css/raty.css'>
 	<link rel="shortcut icon" href="{{ STATIC_URL }}/favicon.ico">
 	<!-- JS Libs -->
 	{% block scripts %}
 	<script src="{{ STATIC_URL }}js/jquery-1.8.1.min.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-	<script src="{{ STATIC_URL }}js/jquery.rateit.min.js"></script>
 	<script src="{{ STATIC_URL }}js/jquery.validate.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.raty.js"></script>
 
 	{% endblock %}
 
@@ -206,6 +206,7 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
 
 </script>
 

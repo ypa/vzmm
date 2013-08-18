@@ -42,27 +42,9 @@ $(document).ready(function() {
 	});
 
 
-	$.validator.addMethod('minStrict', function (value, el, param) {
-	    return value > param;
-	});
-
-    //2. Include custom validation in the rules for your element
-    $("#review_form").validate(
-    {
-		score: {
-		    required: true,
-		    minStrict: 0,
-		    number: true
-		}
-    });
-
-	$("#review_form").validate();
-
-	$(function() {
-		$errorDiv = $('<div>hello</div>').addClass('error');
-		if ($("#rateit").rateit('value') <= 0) {
-			$("#rateit").append($errorDiv);
-		}
+    // initialize the validator
+    $('#review_form').validate({
+	  ignore: []
 	});
 
 
