@@ -41,7 +41,7 @@
 				<span class="stars">{{ avg_score }}</span>
 				<span> average rating: {{ avg_score }} | {{ n_reviews }} reviews</span>
 			</div>
-			<p> {{ hotel.description }} </p>
+			<p> {{ hotel.description |linebreaks }} </p>
 			<div class="contact-information">
 				<h5>CONTACT INFORMATION</h5>
 				{% for address in hotel.address_set.all %}
@@ -75,7 +75,7 @@
 									<span class="stars">{{ review.score }}</span>
 								</div>
 							</div>
-							<p>{{ review.comment }}</p>
+							<p>{{ review.comment |linebreaks }}</p>
 							<div class="info">
 								<p>by {{ review.user_name }}
 								from {{ review.user_city }}, {{ review.creation_date }}</p>
