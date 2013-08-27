@@ -6,18 +6,22 @@
 
 {% block blog-content %}
     {% for post in posts %}
-    <div class="post">
+    <div class="blog-post">
         <h2>
             <a href="{{post.get_absolute_url}}">
                 {{post.title}}
             </a>
         </h2>
         <p>{{post.description}}</p>
-        <p>
-            Posted on
-            <time datetime="{{post.created|date:"c"}}">
-            {{post.created|date}}
-            </time>
+        <p class="text">
+        {{post.content|safe | truncatewords:35}}
+        <a class="link" href="{{post.get_absolute_url}}">Read »</a>
+        </p>
+            
+        Posted on
+        <time datetime="{{post.created|date:"c"}}">
+        {{post.created|date}}
+        </time>
         </p>
     </div>
     {% endfor %}
