@@ -1,1 +1,1 @@
-web: gunicorn vzmm.wsgi
+web: gunicorn --pythonpath="$PWD/vzmm" vzmm.wsgi
