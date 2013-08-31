@@ -21,6 +21,8 @@ def get_env_setting(setting):
 
 INSTALLED_APPS += ('gunicorn',)
 
+DEBUG = True
+
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -49,7 +51,10 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 
 ########## DATABASE CONFIGURATION
-DATABASES = DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+DATABASES = {
+    'default': 
+        dj_database_url.config(default='postgres://localhost')
+}
 ########## END DATABASE CONFIGURATION
 
 
