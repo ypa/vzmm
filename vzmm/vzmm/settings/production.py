@@ -4,6 +4,7 @@
 from os import environ
 
 from base import *
+import dj_database_url
 
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
@@ -48,13 +49,18 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+DATABASES = DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 ########## END DATABASE CONFIGURATION
 
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(PROJECT_ROOT, 'cache/'),
+    }
+}
 ########## END CACHE CONFIGURATION
 
 
