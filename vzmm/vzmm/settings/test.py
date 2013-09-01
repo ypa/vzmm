@@ -1,18 +1,22 @@
 from base import *
+from os import environ
 
 ########## TEST SETTINGS
 TEST_RUNNER = 'discover_runner.DiscoverRunner'
 TEST_DISCOVER_TOP_LEVEL = SITE_ROOT
 TEST_DISCOVER_ROOT = SITE_ROOT
 TEST_DISCOVER_PATTERN = "test_*.py"
-########## IN-MEMORY TEST DATABASE
+DEBUG = True
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": "",
-    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vzmm-test',
+        'USER': environ.get('DB_USER', None),
+        'PASSWORD': environ.get('DB_PWD', None),
+        'HOST': environ.get('DB_HOST', None),
+        'PORT': '5432',
+    }
 }
+
+STATIC_URL = 'https://s3.amazonaws.com/vzmm-assets/'
