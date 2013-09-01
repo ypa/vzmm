@@ -18,7 +18,7 @@
 	{% for hotel in classified_hotel_list %}
 		<div class="featured-item">
 			<div class="span3">
-				<a href="/hotels/{{ hotel.id }}/"><img src="{{ STATIC_URL }}img/hotels/{{ hotel.id }}/thumb.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}" class="img pull-left"></a>
+				<a href="/hotels/{{ hotel.id }}/"><img src="{{ MEDIA_URL }}img/hotels/{{ hotel.id }}/thumb.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}" class="img pull-left"></a>
 			</div>
 			<div class="span7">
 				<strong>

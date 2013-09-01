@@ -19,4 +19,4 @@ DATABASES = {
     }
 }
 
-STATIC_URL = 'https://s3.amazonaws.com/vzmm-assets/'
+MEDIA_URL = 'https://s3.amazonaws.com/vzmm-assets/'

@@ -30,7 +30,7 @@
 		  starOff  : 'star-off-big.png',
 		  starOn   : 'star-on-big.png'
 		});
-		$('#star').raty({ path: '{{ STATIC_URL }}img' });
+		$('#star').raty({ path: '{{ MEDIA_URL }}img' });
 		$("input[name='score']").attr('required', true);
 	});
 
