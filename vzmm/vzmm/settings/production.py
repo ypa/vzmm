@@ -89,7 +89,7 @@ ALLOWED_HOSTS = ['*']
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
-STATIC_URL = 'https://s3.amazonaws.com/vzmm-assets/'
+MEDIA_URL = 'https://s3.amazonaws.com/vzmm-assets/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
