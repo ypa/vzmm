@@ -4,6 +4,8 @@ from django.views.generic import TemplateView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from hotels import views
+from django.conf import settings
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -22,4 +24,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls')),
+)
+
+urlpatterns += patterns('',
+    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
