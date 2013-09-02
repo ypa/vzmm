@@ -26,6 +26,3 @@ urlpatterns = patterns('',
     url(r'^blog/', include('blog.urls')),
 )
 
-urlpatterns += patterns('',
-    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-)
