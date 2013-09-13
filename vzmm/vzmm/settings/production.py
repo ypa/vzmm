@@ -21,7 +21,7 @@ def get_env_setting(setting):
 
 INSTALLED_APPS += ('gunicorn',)
 
-DEBUG = False
+DEBUG = True
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
