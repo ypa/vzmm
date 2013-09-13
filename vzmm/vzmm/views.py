@@ -2,12 +2,13 @@
 from hotels.models import Hotel
 from django.shortcuts import render
 
+FEATURED_ID = 9
 
 def index(request):
-    latest_hotel_list = Hotel.objects.order_by('-created_date')[1:5]
+    latest_hotel_list = Hotel.objects.order_by('-created_date')[2:6]
     classified_hotel_list = Hotel.objects.filter(tag='classified')\
                             .order_by('-created_date')[:4]
-    featured_hotel = Hotel.objects.order_by('-created_date')[0]
+    featured_hotel = Hotel.objects.get(id=FEATURED_ID)
     context = {
                 'latest_hotel_list': latest_hotel_list,
                 'classified_hotel_list': classified_hotel_list,
