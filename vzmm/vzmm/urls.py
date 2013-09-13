@@ -24,5 +24,14 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls')),
+
 )
+
+# SO thread for serving media dir in local 
+# http://stackoverflow.com/questions/5517950/django-media-url-and-media-root
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))
 
