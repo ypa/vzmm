@@ -59,5 +59,15 @@ $(document).ready(function() {
         }
 	});
 
+	$('#write_review').click(function(){
+		$("#reviews").removeClass('active');
+		$("#myTab li:nth-child(1)").removeClass('active');
+		$("#myTab li:nth-child(2)").addClass('active');
+		$("#submit").addClass('active');
+		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+		return false;
+	});
+
+
 
 });
