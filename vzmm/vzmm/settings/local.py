@@ -61,3 +61,7 @@ MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 ########## END TOOLBAR CONFIGURATION
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+

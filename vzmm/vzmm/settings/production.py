@@ -87,3 +87,7 @@ ALLOWED_HOSTS = ['*']
 
 MEDIA_URL = 'https://s3.amazonaws.com/vzmm-assets/'
 
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_REGEX_WHITELIST = ('^http?://(\w+\.)?wagtour\.com$', )
+

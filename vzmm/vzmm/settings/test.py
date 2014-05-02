@@ -20,3 +20,6 @@ DATABASES = {
 }
 
 MEDIA_URL = 'https://s3.amazonaws.com/vzmm-assets/'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
