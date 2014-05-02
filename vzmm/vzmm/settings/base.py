@@ -207,12 +207,15 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
+    'rest_framework',
+    'corsheaders',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'hotels',
     'blog',
+    'api',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -270,3 +273,6 @@ def get_env_variable(var_name):
     except KeyError:
         error_msg = msg % var_name
         raise ImproperlyConfigured(error_msg)
+
+
+
