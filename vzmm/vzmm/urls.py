@@ -28,7 +28,7 @@ urlpatterns = patterns('',
 
 )
 
-)
+
 
 # SO thread for serving media dir in local 
 # http://stackoverflow.com/questions/5517950/django-media-url-and-media-root
