@@ -18,7 +18,7 @@ class JSONResponse(HttpResponse):
 
 
 @csrf_exempt
-def email_list(request):
+def email_tour(request):
     """
     List all code emails, or create a new snippet.
     """
@@ -34,4 +34,3 @@ def email_list(request):
             serializer.save()
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
-        
