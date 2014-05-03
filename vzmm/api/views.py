@@ -17,4 +17,21 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 
+@csrf_exempt
+def email_list(request):
+    """
+    List all code emails, or create a new snippet.
+    """
+    if request.method == 'GET':
+        emails = Email.objects.all()
+        serializer = EmailSerializer(emails, many=True)
+        return JSONResponse(serializer.data)
 
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = EmailSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data, status=201)
+        return JSONResponse(serializer.errors, status=400)
+        
