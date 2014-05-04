@@ -6,4 +6,5 @@ from api.models import Email
 class EmailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Email
-        fields = ('id', 'user_name', 'user_email', 'domain', 'url_path', 'comment')
+        fields = ('id', 'user_name', 'user_email', 'domain', 
+            'url_path', 'comment', 'sg_status', 'sg_msg')
