@@ -7,6 +7,8 @@ class Email(models.Model):
     domain = models.CharField(max_length=50, blank=True)
     url_path = models.CharField(max_length=150, blank=True)
     comment = models.TextField()
+    sg_status = models.IntegerField(blank=True, default=-1)
+    sg_msg = models.CharField(max_length=200, blank=True, default='')
 
 
     def __unicode__(self):
