@@ -6,6 +6,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from api.models import Email
 from api.serializers import EmailSerializer
+from api.sgmail import SGClient
 
 class JSONResponse(HttpResponse):
     """
@@ -29,8 +30,22 @@ def email_tour(request):
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
+        (status, msg) = send_email(**data)
+        print (status, msg)
         serializer = EmailSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
+
+
+def send_email(user_name=None, user_email=None, domain=None, comment=None):
+    """
+    Send the actual email
+    """
+    subject = "About your recent contact to %s" % (domain)
+    from_email = "%s <%s>" %(user_name, user_email)
+    sgc = SGClient()
+    sgc.compose_msg(subject=subject, text=comment)
+    return sgc.send(from_email=from_email,
+        domain=domain)
