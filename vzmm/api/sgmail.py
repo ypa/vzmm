@@ -9,7 +9,7 @@ class SGClient(object):
     def compose_msg(self, subject=None, text=None):
         self.message = sendgrid.Mail()    
         self.message.set_subject(subject)
-        self.message.set_html('Body')
+        self.message.set_html(text)
         self.message.set_text(text)    
 
     def send(self, from_email=None, domain=None):
