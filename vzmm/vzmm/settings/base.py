@@ -281,7 +281,7 @@ SG_USER = get_env_variable('SG_USER')
 SG_PWD = get_env_variable('SG_PWD')
 
 DOMAIN_CONTACTS = {
-    "www.wagtour.com": ["yan.pye.aung@gmail.com"]
+    "www.sittown.com": ["yan.pye.aung@gmail.com"]
 }
 
 
