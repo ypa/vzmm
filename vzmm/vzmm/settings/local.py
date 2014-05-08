@@ -65,3 +65,9 @@ MIDDLEWARE_CLASSES += (
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+
+DOMAIN_CONTACTS.update(
+    {
+        "127.0.0.1:8000": ["yan.pye.aung@gmail.com"]
+    }
+)
