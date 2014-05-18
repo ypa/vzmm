@@ -1,7 +1,7 @@
 {% extends "hotel_base.html" %}
 
 {% block header %}
-<title>Listings | ViZit Myanmar</title>
+<title>Classified Listings | ViZit Myanmar</title>
 {% endblock %}
 
 {% block main-nav %}
@@ -13,26 +13,80 @@
 {% endblock %}
 
 {% block content %}
-<h3 class="title"><span class="pull-left">CLASSIFIED LISTINGS</span></h3>
-<div class="row-fluid">
-	{% for hotel in classified_hotel_list %}
-		<div class="featured-item">
+
+<h3 class="title"><span class="pull-left">HOTEL LISTINGS</span><span class="pull-right"><a href="/hotels">View all listings</a></span></h3>
+<div class="container-fluid">
+	<div class="row-fluid product_listing">
+		{% for hotel in latest_hotel_list %}
 			<div class="span3">
-				<a href="/hotels/{{ hotel.id }}/"><img src="{{ MEDIA_URL }}img/hotels/{{ hotel.id }}/thumb.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}" class="img pull-left"></a>
-			</div>
-			<div class="span7">
-				<strong>
-					<a href="/hotels/{{ hotel.id }}/">{{ hotel.name }}</a>
+				<div class="item">
+					<a href="/hotels/{{ hotel.id }}/"><img class="img" src="{{ MEDIA_URL }}img/hotels/{{ hotel.id }}/main.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}"></a>
+					<a href="/hotels/{{ hotel.id }}/" class="title">{{ hotel.name }}</a>
 					{% if hotel.tag %}
-						<span class="label label-important">{{ hotel.tag }}</span>
+						<span class="label label-success">{{ hotel.tag }}</span>
 					{% endif %}
-				</strong>
-<p> {{ hotel.description | truncatewords:60 }}<a class="link" href="/hotels/{{ hotel.id }}/">.. View Details »</a></p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<h3 class="title"><span class="pull-left">FEATURED HOTEL</span></h3>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span6">
+			<div id="main">
+				<a href="/hotels/{{ featured_hotel.id }}"><img src="{{ MEDIA_URL }}img/hotels/{{ featured_hotel.id }}/main.jpg" alt="" title="{{ featured_hotel.name }}" class="img deal-featured"></a>
+				<p><span class="label label-success">featured</span><strong> - <a href="/hotels/{{ featured_hotel.id }}" title="{{ featured_hotel.name  }}"> {{ featured_hotel.name }} </a></strong>
+				</p>
 			</div>
 		</div>
-	{% endfor %}
+		<div id="thumbs" class="span2">
+			<a class="thumbnail">
+				<img alt="" src="{{ MEDIA_URL }}img/hotels/{{ featured_hotel.id }}/1.jpg">
+			</a>
+			<a class="thumbnail">
+				<img alt="" src="{{ MEDIA_URL }}img/hotels/{{ featured_hotel.id }}/2.jpg">
+			</a><a class="thumbnail">
+				<img alt="" src="{{ MEDIA_URL }}img/hotels/{{ featured_hotel.id }}/3.jpg">
+			</a>
+		</div>
+		<div class="span4">
+			<div class="other_info">
+				<div class="item">
+					<div class="deal-tag">Free</div>
+					<strong><a href="/hotels/{{ featured_hotel.id }}/" title="Swimming Pool">Swimming Pool</a></strong>
+				</div>
+				<div class="item">
+					<div class="deal-tag">Free</div>
+					<strong><a href="/hotels/{{ featured_hotel.id }}/" title="Gardens">Gardens</a></strong>
+				</div>
+				<div class="item">
+					<div class="deal-tag">Free</div>
+					<strong><a href="/hotels/{{ featured_hotel.id }}/" title="Secluded Parlor">Secluded Parlor</a></strong>
+				</div>
+				<div class="item">
+					<div class="deal-tag">$$$</div>
+					<strong><a href="/hotels/{{ featured_hotel.id }}/" title="Weekday Promotion">Weekday Promotion - Call for details</a></strong>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3 class="title"><span class="pull-left">CLASSIFIED HOTELS</span><span class="pull-right"><a href="/hotels/classifieds">View all classifieds</a></span></h3>
+<div class="container-fluid">
+	<div class="row-fluid product_listing">
+		{% for hotel in classified_hotel_list %}
+			<div class="span3">
+				<div class="item">
+					<a href="/hotels/{{ hotel.id }}"><img class="img" src="{{ MEDIA_URL }}img/hotels/{{ hotel.id }}/main.jpg" alt="{{ hotel.name }}" title="{{ hotel.name }}"></a>
+					<a href="/hotels/{{ hotel.id }}" class="title">{{ hotel.name }}</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
 
 
-
+<script src="{{ STATIC_URL }}js/project.js"></script>
 {% endblock %}

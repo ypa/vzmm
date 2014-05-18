@@ -7,6 +7,7 @@ from hotels.models import Hotel, Review
 from django.http import HttpResponseRedirect
 from django import forms
 
+FEATURED_ID = 9
 
 class ReviewForm(forms.Form):
     user_name = forms.CharField(max_length=50)
@@ -52,9 +53,15 @@ def detail(request, hotel_id):
 
 
 def classifieds(request):
+    latest_hotel_list = Hotel.objects.order_by('-created_date')[2:6]
     classified_hotel_list = Hotel.objects.filter(tag='classified')\
-                            .order_by('-created_date')
-    context = {'classified_hotel_list': classified_hotel_list}
+                            .order_by('-created_date')[:4]
+    featured_hotel = Hotel.objects.get(id=FEATURED_ID)
+    context = {
+                'latest_hotel_list': latest_hotel_list,
+                'classified_hotel_list': classified_hotel_list,
+                'featured_hotel': featured_hotel
+                }
     return render(request, 'hotels/classifieds.html', context)
 
 
