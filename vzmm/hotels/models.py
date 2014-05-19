@@ -1,6 +1,8 @@
 from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
+from geoposition.fields import GeopositionField
+
 
 SCORE_CHOICES = (
     (1.0, _(u"*")),
@@ -35,6 +37,7 @@ class Address(models.Model):
     phone2 = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=75, blank=True)
     email2 = models.EmailField(max_length=75, blank=True)
+    position = GeopositionField()
 
     def __unicode__(self):
         return ' '.join([
