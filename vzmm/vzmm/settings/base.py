@@ -211,6 +211,7 @@ THIRD_PARTY_APPS = (
     'south',
     'rest_framework',
     'corsheaders',
+    'geoposition',
 )
 
 # Apps specific for this project go here.
