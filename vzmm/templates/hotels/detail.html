@@ -53,6 +53,9 @@
 							{{ address.city }}, {{ address.state }}, Myanmar
 						</i>
 					</address>
+					{% if address.position.latitude and address.position.longitude %}
+						<div id="map_canvas" class="map rounded" lat="{{ address.position.latitude }}" long="{{ address.position.longitude }}" style="width:397px; height:237px;box-shadow: 1px 1px 1px 1px #AAA;"></div>
+					{% endif %}
 					<strong>Phone:</strong> {{ address.phone }}<br>
 					<strong>E-mail:</strong> <a href="mailto:{{ address.email }}" role="button" data-toggle="modal">send an e-mail</a><br>
 					<strong>URL:</strong> <a href="{{ URL }}">{{ URL }}</a>
