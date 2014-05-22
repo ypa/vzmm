@@ -73,8 +73,9 @@ $(document).ready(function() {
 		var lat = $('#map_canvas').attr('lat');
 		var lng = $('#map_canvas').attr('long');
 		var pos = lat + ',' + lng;
+		var content = $('#map_canvas').attr('content');
 		$('#map_canvas').gmap('addMarker', {'position': pos, 'bounds': true}).click(function() {
-			$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+			$('#map_canvas').gmap('openInfoWindow', {'content': content}, this);
 		});
 		$('#map_canvas').gmap('option', 'zoom', 15);
 	});
