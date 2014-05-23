@@ -70,8 +70,8 @@ $(document).ready(function() {
 
 
 	$('#map_canvas').gmap().bind('init', function(ev, map) {
-		var lat = $('#map_canvas').attr('lat');
-		var lng = $('#map_canvas').attr('long');
+		var lat = $('#map_canvas').data('lat');
+		var lng = $('#map_canvas').data('lng');
 		var pos = lat + ',' + lng;
 		var content = $('#map_canvas').attr('content');
 		$('#map_canvas').gmap('addMarker', {'position': pos, 'bounds': true}).click(function() {

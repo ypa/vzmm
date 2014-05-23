@@ -54,7 +54,7 @@
 						</i>
 					</address>
 					{% if address.position.latitude and address.position.longitude %}
-						<div id="map_canvas" class="map well" lat="{{ address.position.latitude }}" long="{{ address.position.longitude }}" content="{{ address.address }}" style="height:300px;"></div>
+						<div id="map_canvas" class="map well" data-lat="{{ address.position.latitude }}" data-lng="{{ address.position.longitude }}" content="{{ address.address }}" style="height:300px;"></div>
 					{% endif %}
 					<strong>Phone:</strong> {{ address.phone }}<br>
 					<strong>E-mail:</strong> <a href="mailto:{{ address.email }}" role="button" data-toggle="modal">send an e-mail</a><br>
